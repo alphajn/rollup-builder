@@ -1,0 +1,69 @@
+{
+  "name": "rollup-builder",
+  "version": "1.0.0",
+  "description": "rollup builder",
+  "main": "dist/lib-demo.esm.js",
+  "author": "alpha",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rollup -c --watch",
+    "build": "yarn lint:es && cross-env NODE_ENV=production rollup -c",
+    "lint:es": "eslint --ext .js,.ts,.vue src --fix"
+  },
+  "dependencies": {
+    "rollup": "^2.70.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^21.0.2",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "husky": "^7.0.4",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.6.2"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "validate-commit-msg"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue,scss}": [
+      "yarn lint"
+    ]
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "perf",
+        "revert",
+        "release",
+        "chore"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">= 16.2.0"
+  }
+}
