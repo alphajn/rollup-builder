@@ -3,10 +3,9 @@ import json from '@rollup/plugin-json'; // 将 .json 文件转换为 ES6 模块
 import commonjs from '@rollup/plugin-commonjs'; // 将CommonJS模块转换为ES6
 import alias from '@rollup/plugin-alias'; // 设置别名
 import { babel } from '@rollup/plugin-babel'; // rollup babel插件
-import { terser } from 'rollup-plugin-terser'; // 用于缩小生成的 es 包的
+import esbuild from 'rollup-plugin-esbuild';
 import serve from 'rollup-plugin-serve'; // 开发服务器
 import livereload from 'rollup-plugin-livereload'; // 热更新服务
-import typescript from '@rollup/plugin-typescript';
 import path from 'path';
 
 import {
@@ -35,21 +34,23 @@ export default {
         exclude: 'node_modules/**',
     },
     plugins: [
-        resolve(),
-        json(),
-        commonjs(),
         alias({
             entries: {
                 '@': path.resolve(__dirname, 'src'),
             },
         }),
-        typescript(),
+        resolve(),
+        json(),
+        commonjs(),
         babel({
             babelHelpers: 'runtime',
             extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss'],
             exclude: 'node_modules/**', // 只编译我们的源代码
         }),
-        isProd && terser(),
+        esbuild({
+            target: 'esnext',
+            minify: isProd,
+        }),
         !isProd && serve({
             host: 'localhost',
             port: 8081,

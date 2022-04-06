@@ -2,9 +2,6 @@ module.exports = {
     root: true,
     parser: '@typescript-eslint/parser',
     extends: [
-        // "eslint:recommended",
-        // "plugin:@typescript-eslint/recommended",
-        // "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "airbnb",
     ],
     plugins: ["@typescript-eslint"],
@@ -48,8 +45,8 @@ module.exports = {
             'error',
             'never',
             {
-                ts: 'never',
-                js: 'never',
+                ts: 'always',
+                js: 'always',
                 vue: 'always',
                 json: 'always',
             },

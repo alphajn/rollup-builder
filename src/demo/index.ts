@@ -1,4 +1,4 @@
-import { a } from '@/demo/text';
+import { a } from '@/demo/text.ts';
 import { name } from '../../package.json';
 
 export const log = (arg: string): string => {
