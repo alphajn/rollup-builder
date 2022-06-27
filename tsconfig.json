@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
     "resolveJsonModule": true,
     "importHelpers": false,
@@ -13,9 +13,9 @@
     "paths": {
       "@/*": ["src/*"],
     },
-    "lib": ["ESNext", "DOM"]
+    "lib": ["esnext", "dom"]
   },
-  "include": ["src", "*.ts"],
+  "include": ["src", "*.ts", "*.js", ".eslintrc.js"],
   "exclude": [
     "node_modules",
     "dist",

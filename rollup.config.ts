@@ -3,7 +3,7 @@ import json from '@rollup/plugin-json'; // 将 .json 文件转换为 ES6 模块
 import commonjs from '@rollup/plugin-commonjs'; // 将CommonJS模块转换为ES6
 import alias from '@rollup/plugin-alias'; // 设置别名
 import { babel } from '@rollup/plugin-babel'; // rollup babel插件
-import esbuild from 'rollup-plugin-esbuild';
+import esbuild from 'rollup-plugin-esbuild'; // 压缩
 import serve from 'rollup-plugin-serve'; // 开发服务器
 import livereload from 'rollup-plugin-livereload'; // 热更新服务
 import path from 'path';

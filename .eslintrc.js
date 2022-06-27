@@ -2,22 +2,23 @@ module.exports = {
     root: true,
     parser: '@typescript-eslint/parser',
     extends: [
-        "airbnb",
+        'plugin:@typescript-eslint/recommended',
+        'airbnb-base',
     ],
-    plugins: ["@typescript-eslint"],
+    plugins: ['@typescript-eslint'],
     env: {
         browser: true,
         es2021: true,
         node: true,
     },
     parserOptions: {
-        ecmaVersion: 12,
-        sourceType: "module",
-        ecmaFeatures: {
-            jsx: true
-        },
+        ecmaVersion: 'latest',
+        sourceType: 'module',
         tsconfigRootDir: __dirname,
-        project: ['./tsconfig.json']
+        ecmaFeatures: {
+            jsx: true,
+        },
+        project: ['./tsconfig.json'],
     },
     settings: {
         'import/resolver': {
@@ -27,7 +28,6 @@ module.exports = {
         },
         'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     },
-    ignorePatterns: ['.eslintrc.js'],
     rules: {
         // 4个空格缩进 强制switch的case字句缩进级别
         indent: [2, 4,
@@ -54,7 +54,7 @@ module.exports = {
         'import/no-unresolved': [
             2,
             {
-                ignore: ['^@/']
+                ignore: ['^@/'],
             },
         ],
         // 允许部分页面引用 devDependencies 中的依赖
@@ -66,11 +66,10 @@ module.exports = {
                     '**/*.test.jsx',
                     '**/*.test.ts',
                     '**/*.test.tsx',
-                    'rollup.config.ts'
+                    'rollup.config.ts',
                 ],
             },
         ],
-        "eol-last": 0,
     },
     overrides: [{
         files: [
